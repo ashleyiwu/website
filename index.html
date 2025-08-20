@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;My UX Portfolio &amp; Task Manager&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Use Tailwind CSS for a modern and responsive design --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f3f4f6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container-wrapper {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1024px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-project {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.2s, box-shadow 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-project:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-5px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.task-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.task-item.completed {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: line-through;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #9ca3af;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-gray-100 flex items-center justify-center p-4 min-h-screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="app" class="container-wrapper w-full p-8 md:p-12 lg:p-16"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Header with Toggling Buttons --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="flex justify-between items-center mb-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl md:text-4xl font-bold text-gray-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span id="title-text"&gt;My UX Portfolio&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex space-x-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="show-portfolio" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Portfolio</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="show-tasks" class="bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold py-2 px-4 rounded-full transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Tasks</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Portfolio View --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;main id="portfolio-view" class="space-y-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Project Card 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card-project bg-gray-50 p-6 md:p-8 rounded-2xl border border-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-2xl font-semibold text-gray-800 mb-2"&gt;Project: E-commerce Checkout Flow&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-600 mb-4"&gt;A case study on redesigning a mobile e-commerce checkout process to reduce cart abandonment rates. Involved user interviews, usability testing, and A/B testing of different layouts.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-wrap gap-2 text-sm text-gray-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="bg-gray-200 px-3 py-1 rounded-full"&gt;UX Research&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="bg-gray-200 px-3 py-1 rounded-full"&gt;Usability Testing&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="bg-gray-200 px-3 py-1 rounded-full"&gt;Prototype&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Project Card 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card-project bg-gray-50 p-6 md:p-8 rounded-2xl border border-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-2xl font-semibold text-gray-800 mb-2"&gt;Project: AI-powered Language Learning App&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-600 mb-4"&gt;Investigated user needs for a new AI-driven language app. Focused on qualitative research methods to understand learning motivations and pain points, informing feature development.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-wrap gap-2 text-sm text-gray-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="bg-gray-200 px-3 py-1 rounded-full"&gt;Generative Research&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="bg-gray-200 px-3 py-1 rounded-full"&gt;Survey Design&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="bg-gray-200 px-3 py-1 rounded-full"&gt;Competitive Analysis&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Add more project cards here following the same structure --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Task Manager View (Hidden by Default) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;main id="tasks-view" class="hidden space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center space-x-2 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="text" id="new-task-input" placeholder="Add a new task..." class="flex-grow p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="add-task-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Add</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul id="task-list" class="space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Task items will be dynamically added here --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Footer with User ID for Frugal "Backend" --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer class="mt-10 pt-6 border-t border-gray-200 text-center text-gray-400 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;User ID: &lt;span id="user-id" class="font-mono text-gray-500 break-all"&gt;Authenticating...&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Firebase SDKs --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="module"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Import the necessary Firebase modules</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { getFirestore, collection, onSnapshot, doc, setDoc, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Global variables provided by the Canvas environment</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Firebase Initialization and Authentication ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let db, auth, userId;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const userIdEl = document.getElementById('user-id');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const initFirebase = async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const app = initializeApp(firebaseConfig);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>auth = getAuth(app);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>db = getFirestore(app);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Listen for authentication state changes</p>
+<p class="p1"><span class="Apple-converted-space">                </span>onAuthStateChanged(auth, async (user) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (user) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>userId = user.uid;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>userIdEl.textContent = userId;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>console.log("User authenticated:", userId);</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>// Once authenticated, load the tasks</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>loadTasks();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>// User is signed out, handle as needed</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>userId = null;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>userIdEl.textContent = 'Not authenticated';</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>console.log("User signed out.");</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Sign in using the custom token or anonymously if it's not available</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (initialAuthToken) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>await signInWithCustomToken(auth, initialAuthToken);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>await signInAnonymously(auth);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error initializing Firebase or signing in:", error);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>userIdEl.textContent = 'Auth error';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- DOM Elements ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const portfolioView = document.getElementById('portfolio-view');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tasksView = document.getElementById('tasks-view');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const showPortfolioBtn = document.getElementById('show-portfolio');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const showTasksBtn = document.getElementById('show-tasks');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const titleEl = document.getElementById('title-text');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const taskListEl = document.getElementById('task-list');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const newTaskInput = document.getElementById('new-task-input');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const addTaskBtn = document.getElementById('add-task-btn');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- View Toggling Logic ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const showView = (viewId) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>portfolioView.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>tasksView.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(viewId).classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>titleEl.textContent = viewId === 'portfolio-view' ? 'My UX Portfolio' : 'My Tasks';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Highlight the active button</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showPortfolioBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'text-white');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showPortfolioBtn.classList.add('bg-blue-100', 'hover:bg-blue-200', 'text-blue-800');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showTasksBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'text-white');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showTasksBtn.classList.add('bg-blue-100', 'hover:bg-blue-200', 'text-blue-800');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (viewId === 'portfolio-view') {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showPortfolioBtn.classList.add('bg-blue-600', 'hover:bg-blue-700', 'text-white');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showPortfolioBtn.classList.remove('bg-blue-100', 'hover:bg-blue-200', 'text-blue-800');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showTasksBtn.classList.add('bg-blue-600', 'hover:bg-blue-700', 'text-white');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showTasksBtn.classList.remove('bg-blue-100', 'hover:bg-blue-200', 'text-blue-800');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>showPortfolioBtn.addEventListener('click', () =&gt; showView('portfolio-view'));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showTasksBtn.addEventListener('click', () =&gt; showView('tasks-view'));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Task Manager Functions ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const getTasksCollection = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Use the provided app ID and user ID to create a private collection path.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// This ensures data is private to the user.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const collectionPath = `/artifacts/${appId}/users/${userId}/tasks`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return collection(db, collectionPath);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const loadTasks = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!db || !userId) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.warn("Firestore not ready or user not authenticated. Cannot load tasks.");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const tasksRef = getTasksCollection();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// onSnapshot provides real-time updates for the task list</p>
+<p class="p1"><span class="Apple-converted-space">            </span>onSnapshot(tasksRef, (snapshot) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>taskListEl.innerHTML = ''; // Clear the current list</p>
+<p class="p1"><span class="Apple-converted-space">                </span>snapshot.docs.forEach(doc =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const task = { id: doc.id, ...doc.data() };</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>renderTask(task);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, (error) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error fetching tasks:", error);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const renderTask = (task) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const li = document.createElement('li');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>li.id = `task-${task.id}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>li.classList.add('flex', 'items-center', 'justify-between', 'p-4', 'rounded-lg', 'bg-white', 'border', 'border-gray-200', 'task-item');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (task.completed) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>li.classList.add('completed');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const taskText = document.createElement('span');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>taskText.textContent = task.text;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>taskText.classList.add('flex-grow', 'text-gray-700', 'cursor-pointer');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const actionContainer = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>actionContainer.classList.add('flex', 'space-x-2');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Complete button</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const completeBtn = document.createElement('button');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>completeBtn.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ${task.completed ? 'text-green-500' : 'text-gray-400'}" viewBox="0 0 20 20" fill="currentColor"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>completeBtn.title = task.completed ? 'Mark as Incomplete' : 'Mark as Complete';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>completeBtn.classList.add('p-1', 'rounded-full', 'hover:bg-gray-100');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>completeBtn.addEventListener('click', () =&gt; toggleTaskCompletion(task));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Delete button</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const deleteBtn = document.createElement('button');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>deleteBtn.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:text-red-500" viewBox="0 0 20 20" fill="currentColor"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm6 0a1 1 0 112 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>deleteBtn.title = 'Delete Task';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>deleteBtn.classList.add('p-1', 'rounded-full', 'hover:bg-gray-100');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>deleteBtn.addEventListener('click', () =&gt; deleteTask(task.id));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>actionContainer.appendChild(completeBtn);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>actionContainer.appendChild(deleteBtn);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>li.appendChild(taskText);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>li.appendChild(actionContainer);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>taskListEl.appendChild(li);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const toggleTaskCompletion = async (task) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!db) return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const taskRef = doc(db, getTasksCollection().path, task.id);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>await updateDoc(taskRef, { completed: !task.completed });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error toggling task completion:", error);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const deleteTask = async (taskId) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!db) return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const taskRef = doc(db, getTasksCollection().path, taskId);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>await deleteDoc(taskRef);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error deleting task:", error);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const addTask = async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!db || !newTaskInput.value.trim()) return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>await addDoc(getTasksCollection(), {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>text: newTaskInput.value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>completed: false,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>createdAt: new Date()</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>newTaskInput.value = ''; // Clear input</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error adding task:", error);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>addTaskBtn.addEventListener('click', addTask);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>newTaskInput.addEventListener('keydown', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (e.key === 'Enter') {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>addTask();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Initialize everything when the window loads</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.onload = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>initFirebase();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showView('portfolio-view'); // Show portfolio view by default</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
